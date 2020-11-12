@@ -36,7 +36,19 @@ module guess_FSM_test();
        .y(y_t)
     );
     
+    always begin
+       clk_t = ~clk_t; #5;
+    end
+    
     initial begin 
-       clk_t = 0; 
+        clk_t = 0; en_t = 0; rst_t = 0; #5;
+        en_t = 1; #5;
+        b_t = 4'b0001; #5;
+        rst_t = 1; #5;
+        rst_t = 0; #5;
+        b_t = 4'b0000; #5;
+        b_t = 4'b1100; #5;
+        $finish;
+    end
 
 endmodule

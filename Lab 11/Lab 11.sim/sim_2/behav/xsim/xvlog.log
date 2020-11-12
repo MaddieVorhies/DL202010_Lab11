@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module guess_FSM
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module guess_FSM_test

@@ -54,7 +54,6 @@ module guess_FSM #(parameter N=1)(
       
       case(state)
          s0: begin
-            y[0] = 1;
             if (4'b0001)
                state_next = swin;
             else if (4'b000)
@@ -64,7 +63,6 @@ module guess_FSM #(parameter N=1)(
          end
          
          s1: begin
-            y[1] = 1;
             if (4'b0010)
                state_next = swin;
             else if (4'b000)
@@ -74,7 +72,6 @@ module guess_FSM #(parameter N=1)(
          end
          
          s2: begin
-            y[2] = 1;
             if (4'b0100)
                state_next = swin;
             else if (4'b000)
@@ -84,7 +81,6 @@ module guess_FSM #(parameter N=1)(
          end
          
          s3: begin
-            y[3] = 1;
             if (4'b1000)
                state_next = swin;
             else if (4'b000)
@@ -94,7 +90,6 @@ module guess_FSM #(parameter N=1)(
          end
          
          swin: begin
-            win = 1;
             if (4'b0000)
                state_next = s0; 
             else 
@@ -102,7 +97,6 @@ module guess_FSM #(parameter N=1)(
          end
          
          slose: begin
-            lose = 1;
             if (4'b0000)
                state_next = s0; 
             else 
@@ -111,19 +105,25 @@ module guess_FSM #(parameter N=1)(
       endcase
     end
     
-    always @*
+    always @* begin
+      win = 0;
+      lose = 0;
+      
        case(state)
           s0: y = 4'b0001;
           s1: y = 4'b0010;
           s2: y = 4'b0100;
           s3: y = 4'b1000;
-          swin: win = 1;
-          slose: lose = 1;
+          swin: begin
+             win = 1;
+             y = 4'b1111;
+          end
+          slose: begin
+             lose = 1;
+             y = 4'b0000;
+          end
        endcase
-       
-    
-          
-      
-    
+    end
+
     
 endmodule
