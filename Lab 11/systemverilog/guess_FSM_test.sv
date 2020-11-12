@@ -20,7 +20,23 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module guess_FSM_test(
-
+module guess_FSM_test();
+    reg clk_t, rst_t, en_t;
+    reg  [3:0] b_t;
+    reg win_t, lose_t;
+    reg [3:0] y_t;
+    
+    guess_FSM dut (
+       .clk(clk_t), 
+       .rst(rst_t), 
+       .en(en_t),
+       .b(b_t),
+       .win(win_t), 
+       .lose(lose_t), 
+       .y(y_t)
     );
+    
+    initial begin 
+       clk_t = 0; 
+
 endmodule
