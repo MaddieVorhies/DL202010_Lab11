@@ -1,0 +1,455 @@
+/*
+
+Xilinx Vivado v2020.1 (64-bit) [Major: 2020, Minor: 1]
+SW Build: 2902540 on Wed May 27 19:54:49 MDT 2020
+IP Build: 2902112 on Wed May 27 22:43:36 MDT 2020
+
+Process ID (PID): 13280
+License: Customer
+
+Current time: 	Wed Nov 11 20:23:23 CST 2020
+Time zone: 	Central Standard Time (America/Chicago)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/XilinxVitis/Vivado/2020.1/tps/win64/jre9.0.4
+Java executable location: 	C:/XilinxVitis/Vivado/2020.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Maddie_Vorhies1
+User home directory: C:/Users/Maddie_Vorhies1
+User working directory: H:/DL202010_Lab11/Lab 11
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/XilinxVitis/Vivado
+HDI_APPROOT: C:/XilinxVitis/Vivado/2020.1
+RDI_DATADIR: C:/XilinxVitis/Vivado/2020.1/data
+RDI_BINDIR: C:/XilinxVitis/Vivado/2020.1/bin
+
+Vivado preferences file location: C:/Users/Maddie_Vorhies1/AppData/Roaming/Xilinx/Vivado/2020.1/vivado.xml
+Vivado preferences directory: C:/Users/Maddie_Vorhies1/AppData/Roaming/Xilinx/Vivado/2020.1/
+Vivado layouts directory: C:/Users/Maddie_Vorhies1/AppData/Roaming/Xilinx/Vivado/2020.1/data/layouts
+PlanAhead jar file location: 	C:/XilinxVitis/Vivado/2020.1/lib/classes/planAhead.jar
+Vivado log file location: 	H:/DL202010_Lab11/Lab 11/vivado.log
+Vivado journal file location: 	H:/DL202010_Lab11/Lab 11/vivado.jou
+Engine tmp dir: 	H:/DL202010_Lab11/Lab 11/.Xil/Vivado-13280-ROG-305-16
+
+Xilinx Environment Variables
+----------------------------
+VSSDK140Install: C:\Program Files (x86)\Microsoft Visual Studio 14.0\VSSDK\
+XILINX: C:/XilinxVitis/Vivado/2020.1/ids_lite/ISE
+XILINX_DSP: C:/XilinxVitis/Vivado/2020.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/XilinxVitis/Vivado/2020.1
+XILINX_SDK: C:/XilinxVitis/Vitis/2020.1
+XILINX_VITIS: C:/XilinxVitis/Vitis/2020.1
+XILINX_VIVADO: C:/XilinxVitis/Vivado/2020.1
+XILINX_VIVADO_HLS: C:/XilinxVitis/Vivado/2020.1
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,036 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 121 MB (+124772kb) [00:00:07]
+// [Engine Memory]: 1,036 MB (+934590kb) [00:00:07]
+// bz (cs):  Open Project : addNotify
+// Opening Vivado Project: H:\DL202010_Lab11\Lab 11\Lab 11.xpr. Version: Vivado v2020.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {H:/DL202010_Lab11/Lab 11/Lab 11.xpr} 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,036 MB. GUI used memory: 53 MB. Current time: 11/11/20, 8:23:24 PM CST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project {H:/DL202010_Lab11/Lab 11/Lab 11.xpr} 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2770 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/XilinxVitis/Vivado/2020.1/data/ip'. 
+// Project name: Lab 11; location: H:/DL202010_Lab11/Lab 11; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1096.293 ; gain = 0.000 
+dismissDialog("Open Project"); // bz (cs)
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// a (cs): Critical Messages: addNotify
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 132 MB (+4617kb) [00:01:17]
+// Elapsed time: 67 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (a)
+dismissDialog("Critical Messages"); // a (cs)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv)]", 2); // B (F, cs)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_slow (counter_slow.sv)]", 5); // B (F, cs)
+// PAPropertyPanels.initPanels (guess_FSM.sv) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guess_FSM (guess_FSM.sv)]", 9, false); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, guess_FSM (guess_FSM.sv)]", 9, false, false, false, false, false, true); // B (F, cs) - Double Click
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_slow (counter_slow.sv)]", 6, true); // B (F, cs) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_slow (counter_slow.sv)]", 6, true, false, false, false, false, true); // B (F, cs) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv)]", 3, true); // B (F, cs) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv)]", 3, true, false, false, false, false, true); // B (F, cs) - Double Click - Node
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_slow.sv", 2); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_fast.sv", 3); // m (l, cs)
+// Elapsed time: 58 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv)]", 3); // B (F, cs)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_slow (counter_slow.sv)]", 6); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv), count_fast : counter (counter.sv), reg_in_count : register (register.sv)]", 5, false); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, counter_fast (counter_fast.sv), count_fast : counter (counter.sv), reg_in_count : register (register.sv)]", 5, false, false, false, false, false, true); // B (F, cs) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_slow.sv", 2); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "register.sv", 4); // m (l, cs)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_slow.sv", 2); // m (l, cs)
+selectCodeEditor("counter_slow.sv", 47, 550); // bP (w, cs)
+selectCodeEditor("counter_slow.sv", 74, 485); // bP (w, cs)
+selectCodeEditor("counter_slow.sv", 40, 551); // bP (w, cs)
+// [GUI Memory]: 141 MB (+2190kb) [00:13:34]
+// Elapsed time: 903 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectCodeEditor("guess_FSM.sv", 160, 565); // bP (w, cs)
+// Elapsed time: 32 seconds
+selectCodeEditor("guess_FSM.sv", 104, 585); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 602); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 126, 516); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 118, 532); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 119, 553); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 119, 566); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 130, 583); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 122, 599); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 162, 584); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 162, 606); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 165, 535); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 241, 534); // bP (w, cs)
+// Elapsed time: 56 seconds
+selectCodeEditor("guess_FSM.sv", 62, 548); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 82, 431); // bP (w, cs)
+// Elapsed time: 32 seconds
+selectCodeEditor("guess_FSM.sv", 330, 478); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 120, 570); // bP (w, cs)
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, debounce (debounce.sv)]", 9, false); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, debounce (debounce.sv)]", 9, false, false, false, false, false, true); // B (F, cs) - Double Click
+selectCodeEditor("debounce.sv", 40, 382); // bP (w, cs)
+typeControlKey((HResource) null, "debounce.sv", 'c'); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 28, 445); // bP (w, cs)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 166, 471); // bP (w, cs)
+// Elapsed time: 25 seconds
+selectCodeEditor("guess_FSM.sv", 108, 452); // bP (w, cs)
+// Elapsed time: 20 seconds
+selectCodeEditor("guess_FSM.sv", 118, 573); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+// Elapsed time: 18 seconds
+selectCodeEditor("debounce.sv", 21, 298); // bP (w, cs)
+typeControlKey((HResource) null, "debounce.sv", 'c'); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 182, 566); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 604); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 52, 599); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 46, 599); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 46, 599, false, false, false, false, true); // bP (w, cs) - Double Click
+selectCodeEditor("guess_FSM.sv", 45, 599); // bP (w, cs)
+// Elapsed time: 133 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+selectCodeEditor("debounce.sv", 101, 486); // bP (w, cs)
+selectCodeEditor("debounce.sv", 40, 401); // bP (w, cs)
+typeControlKey((HResource) null, "debounce.sv", 'c'); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 111, 517); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+// Elapsed time: 20 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "register.sv", 4); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_fast.sv", 3); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_slow.sv", 2); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectCodeEditor("guess_FSM.sv", 91, 351); // bP (w, cs)
+// Elapsed time: 99 seconds
+selectCodeEditor("guess_FSM.sv", 101, 365); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 364); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 364, false, false, false, false, true); // bP (w, cs) - Double Click
+selectCodeEditor("guess_FSM.sv", 96, 364); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 103, 364); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 124, 368); // bP (w, cs)
+// Elapsed time: 16 seconds
+selectCodeEditor("guess_FSM.sv", 91, 368); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 106, 366); // bP (w, cs)
+// Elapsed time: 48 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "register.sv", 4); // m (l, cs)
+// Elapsed time: 19 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,036 MB. GUI used memory: 78 MB. Current time: 11/11/20, 8:53:24 PM CST
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+// Elapsed time: 19 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectCodeEditor("guess_FSM.sv", 94, 437); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 264, 384); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 124, 386); // bP (w, cs)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1361 ms. Increasing delay to 4083 ms.
+// Elapsed time: 161 seconds
+selectCodeEditor("guess_FSM.sv", 232, 431); // bP (w, cs)
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 615 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1090 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1158 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1088 ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 12 seconds
+selectCodeEditor("guess_FSM.sv", 264, 425); // bP (w, cs)
+// Elapsed time: 15 seconds
+selectCodeEditor("guess_FSM.sv", 230, 435); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'c'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 95, 463); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 222, 470); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 222, 470); // bP (w, cs)
+// Elapsed time: 32 seconds
+selectCodeEditor("guess_FSM.sv", 86, 520); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'c'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 516); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 74, 485); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 105, 502); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 157, 523); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 209, 569); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 114, 437); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 77, 465); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 104, 484); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 159, 502); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 208, 551); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 113, 601); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 76, 487); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 102, 503); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 159, 517); // bP (w, cs)
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1102 ms to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1114 ms to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 844 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1121 ms to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1100 ms to process. Increasing delay to 3000 ms.
+// Elapsed time: 11 seconds
+selectCodeEditor("guess_FSM.sv", 208, 573); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 98, 438); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 75, 468); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 108, 484); // bP (w, cs)
+// Elapsed time: 24 seconds
+selectCodeEditor("guess_FSM.sv", 216, 401); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 120, 381); // bP (w, cs)
+// Elapsed time: 14 seconds
+selectCodeEditor("guess_FSM.sv", 161, 348); // bP (w, cs)
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 1210ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1218 ms.
+// Elapsed time: 10 seconds
+selectCodeEditor("guess_FSM.sv", 227, 364); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 224, 400); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 87, 414); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'c'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 89, 418); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 89, 454); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 103, 466); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+selectCodeEditor("debounce.sv", 46, 576); // bP (w, cs)
+typeControlKey((HResource) null, "debounce.sv", 'c'); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectCodeEditor("guess_FSM.sv", 83, 559); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 79, 565); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 26, 567); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 124, 538); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 124, 399); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 123, 262); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 123, 88); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 125, 282); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 125, 108); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 66, 455); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 29, 560); // bP (w, cs)
+// Elapsed time: 64 seconds
+selectCodeEditor("guess_FSM.sv", 16, 161); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 21, 161); // bP (w, cs)
+typeControlKey(null, null, 'z');
+selectCodeEditor("guess_FSM.sv", 17, 534); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 22, 538); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 64, 537); // bP (w, cs)
+// Elapsed time: 23 seconds
+selectCodeEditor("guess_FSM.sv", 151, 504); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 160, 517); // bP (w, cs)
+// Elapsed time: 72 seconds
+selectCodeEditor("guess_FSM.sv", 162, 504); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 139, 575); // bP (w, cs)
+// Elapsed time: 95 seconds
+selectCodeEditor("guess_FSM.sv", 175, 554); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 172, 569); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 155, 586); // bP (w, cs)
+// Elapsed time: 16 seconds
+selectCodeEditor("guess_FSM.sv", 111, 585); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 96, 572); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 115, 589); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 128, 572); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 95, 555); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 96, 535); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 94, 518); // bP (w, cs)
+// Elapsed time: 13 seconds
+selectCodeEditor("guess_FSM.sv", 140, 532); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 134, 552); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 126, 569); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 126, 582); // bP (w, cs)
+selectCodeEditor("guess_FSM.sv", 198, 523); // bP (w, cs)
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1810 ms to process. Increasing delay to 4000 ms.
+// Elapsed time: 454 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (J, cs)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cs): Add Sources: addNotify
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a (o, c)
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectComboBox(PAResourceQtoS.SrcChooserPanel_ADD_FILES_BELOW_TO_THIS_SIMULATION_SET, "Create Simulation Set...", 1); // bH (bm, c)
+setText("PAResourceQtoS.SrcChooserPanel_ENTER_SIMULATION_SET_NAME", "sim_2"); // BasicOptionPaneUI.MultiplexingTextField (v, C)
+// TclEventType: FILE_SET_NEW
+selectButton("OptionPane.button", "OK"); // JButton (v, C)
+// Tcl Message: create_fileset -simset sim_2 
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (E, c)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+dismissFileChooser();
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (E, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (E, c)
+// F (c): Create Source File: addNotify
+selectComboBox(PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, "SystemVerilog", 2); // cm (Q, F)
+selectComboBox(PAResourceAtoD.CreateSrcFileDialog_FILE_LOCATION, "Choose Location...", 1); // e (Q, F)
+setFolderChooser("H:/DL202010_Lab11/Lab 11/systemverilog");
+// Elapsed time: 12 seconds
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "guess_FSM_test"); // ac (Q, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 35 seconds
+dismissDialog("Add Sources"); // c (cs)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_2] 
+// Tcl Message: close [ open {H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM_test.sv} w ] 
+// TclEventType: DG_GRAPH_STALE
+// bz (cs):  Add Simulation Sources  : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset sim_2 {{H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM_test.sv}} 
+// I (cs): Define Module: addNotify
+dismissDialog("Add Simulation Sources"); // bz (cs)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "Yes"); // JButton (v, C)
+dismissDialog("Define Module"); // I (cs)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_2 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 12); // B (F, cs)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_2]", 13); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_2, guess_FSM_test (guess_FSM_test.sv)]", 19, false); // B (F, cs)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_2, guess_FSM_test (guess_FSM_test.sv)]", 19, false, false, false, false, false, true); // B (F, cs) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // E (g, cs)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM_test.sv", 6); // m (l, cs)
+selectCodeEditor("guess_FSM_test.sv", 27, 417); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 174, 384); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM.sv", 1); // m (l, cs)
+selectCodeEditor("guess_FSM.sv", 156, 247); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM.sv", 'c'); // bP (w, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM_test.sv", 6); // m (l, cs)
+selectCodeEditor("guess_FSM_test.sv", 62, 400); // bP (w, cs)
+typeControlKey((HResource) null, "guess_FSM_test.sv", 'v'); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 21, 401); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 61, 399); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 61, 418); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 70, 434); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 69, 450); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 111, 449); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 139, 436); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 118, 414); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 150, 395); // bP (w, cs)
+// Elapsed time: 61 seconds
+selectCodeEditor("guess_FSM_test.sv", 74, 407); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 125, 403); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 165, 404); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 111, 415); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 118, 438); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 104, 451); // bP (w, cs)
+// Elapsed time: 129 seconds
+selectCodeEditor("guess_FSM_test.sv", 128, 451); // bP (w, cs)
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "debounce.sv", 5); // m (l, cs)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "guess_FSM_test.sv", 6); // m (l, cs)
+// Elapsed time: 49 seconds
+selectCodeEditor("guess_FSM_test.sv", 72, 432); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 77, 433); // bP (w, cs)
+selectCodeEditor("guess_FSM_test.sv", 79, 572); // bP (w, cs)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,036 MB. GUI used memory: 73 MB. Current time: 11/11/20, 9:23:25 PM CST
+// Elapsed time: 116 seconds
+selectCodeEditor("guess_FSM_test.sv", 59, 565); // bP (w, cs)
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2178 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1704 ms to process. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1896 ms to process. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2672 ms to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2924 ms to process. Increasing delay to 3000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1067ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1067 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2026 ms to process. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2026 ms to process. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2108 ms to process. Increasing delay to 4000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1298ms to process. Increasing delay to 7000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1298 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 3529 ms to process. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 3006 ms to process. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2413 ms to process. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2722 ms to process. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2645 ms to process. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 3916 ms to process. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 3110 ms to process. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 3440 ms to process. Increasing delay to 7000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1542ms to process. Increasing delay to 8000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1542 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1043ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1043 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 60559 ms. Increasing delay to 181677 ms.
