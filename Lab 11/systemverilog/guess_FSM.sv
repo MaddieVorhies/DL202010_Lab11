@@ -20,89 +20,77 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module guess_FSM #(parameter N=1)(
+module guess_FSM(
     input clk, rst, en,
     input  [3:0] b,
+    output reg [15:0] led,
     output reg win, lose,
     output reg [3:0] y
     );
     
       localparam s0    = 3'b000;
       localparam s1    = 3'b001;
-      localparam s2    = 3'b011;
-      localparam s3    = 3'b010;
+      localparam s2    = 3'b010;
+      localparam s3    = 3'b011;
       localparam swin  = 3'b100;
       localparam slose = 3'b101;
 
-    reg [1:0] state, state_next;
-    reg [N-1:0] counter, counter_next;
+    reg [2:0] state, state_next;
       
-    always_ff @(posedge clk, posedge rst)
+    always @(posedge clk, posedge rst)
        if (rst) begin
          state   <= s0;
-         counter <= {N{1'b1}};
+         led[15:0] = 1'b0;
       end
-      else begin
+      else if (en)
          state   <= state_next;
-         counter <= counter_next;
-      end
       
-    always_comb begin
-      state_next   = state;
-      counter_next = counter;
-      
+    always @*
+          
       case(state)
          s0: begin
-            if (4'b0001)
-               state_next = swin;
-            else if (4'b0000)
-               state_next = s1; 
+            if (b == 4'b0000)
+               state_next = s1;
+            else if (b[3] == 1 || b[2] == 1 || b[1] == 1)
+               state_next = slose; 
             else 
-               state_next = slose;
+               state_next = swin;
          end
          
          s1: begin
-            if (4'b0010)
-               state_next = swin;
-            else if (4'b0000)
-               state_next = s2; 
+            if (b == 4'b0000)
+               state_next = s2;
+            else if (b[3] == 1 || b[2] == 1 || b[0] == 1)
+               state_next = slose; 
             else 
-               state_next = slose;
+               state_next = swin;
          end
          
          s2: begin
-            if (4'b0100)
-               state_next = swin;
-            else if (4'b0000)
-               state_next = s3; 
+            if (b == 4'b0000)
+               state_next = s3;
+            else if (b[3] == 1 || b[1] == 1 || b[0] == 1)
+               state_next = slose; 
             else 
-               state_next = slose;
+               state_next = swin;
          end
          
          s3: begin
-            if (4'b1000)
-               state_next = swin;
-            else if (4'b0000)
-               state_next = s0; 
-            else 
-               state_next = slose;
-         end
-         
-         swin: begin
-            if (4'b0000)
-               state_next = s0; 
+            if (b == 4'b0000)
+               state_next = s0;
+            else if (b[2] == 1 || b[1] == 1 || b[0] == 1)
+               state_next = slose; 
             else 
                state_next = swin;
          end
          
-         slose: begin
-            if (4'b0000)
-               state_next = s0; 
-            else 
-               state_next = swin;
-         end
+         swin: 
+            state_next = swin;
+         
+         slose: 
+            state_next = slose;
+            
       endcase
-    end
     
     always @* begin
       win = 0;
@@ -135,16 +123,21 @@ module guess_FSM #(parameter N=1)(
              end
              
           swin: begin
-             win = 1;
+             win = 1'b1;
+             lose = 1'b0;
              y = 4'b1111;
+             led[15:0] = 1'b1;
           end
           
           slose: begin
-             lose = 1;
+             lose = 1'b1;
+             win = 1'b0;
              y = 4'b0000;
+             led[0] = 1'b1;
           end
        endcase
     end
-
+    
+    
     
 endmodule

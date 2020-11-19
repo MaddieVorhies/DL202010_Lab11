@@ -23,13 +23,13 @@
 module counter_fast(
     input clk,
     input rst,
-    output msbs
+    output tick
     );
     
-    counter #(.N(23)) count_fast (
+    counter #(.N(24)) count_fast (
        .clk(clk),
        .rst(rst),
-       .msbs(msbs)
+       .tick(tick)
     );
     
 endmodule

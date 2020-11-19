@@ -23,13 +23,13 @@
 module counter_slow(
     input clk,
     input rst,
-    output msbs
+    output tick
     );
     
-    counter #(.N(25)) count_slow (
+    counter #(.N(26)) count_slow (
        .clk(clk),
        .rst(rst),
-       .msbs(msbs)
+       .tick(tick)
     );
     
 endmodule

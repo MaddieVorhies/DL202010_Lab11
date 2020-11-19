@@ -73,18 +73,18 @@ module guessing_game(
    counter_slow slow(
        .clk(clk), 
        .rst(btnC),
-       .msbs(slow_count)
+       .tick(slow_count)
     );
    
     counter_fast fast(
        .clk(clk),
        .rst(btnC),
-       .msbs(fast_count)
+       .tick(fast_count)
     );
     
     mux2 #(.BITS(1)) mux_guess(
-       .in0(fast_count),
-       .in1(slow_count),
+       .in0(slow_count),
+       .in1(fast_count),
        .sel(sw[0]),
        .out(mux2_out)
     );
@@ -96,7 +96,8 @@ module guessing_game(
        .rst(btnC),
        .y(guess_y),
        .win(guess_win),
-       .lose(guess_lose)
+       .lose(guess_lose),
+       .led(led)
     );
     
     y_decoder decoder(
