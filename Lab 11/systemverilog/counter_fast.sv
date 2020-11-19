@@ -26,7 +26,7 @@ module counter_fast(
     output msbs
     );
     
-    counter #(.N(1)) count_fast (
+    counter #(.N(23)) count_fast (
        .clk(clk),
        .rst(rst),
        .msbs(msbs)

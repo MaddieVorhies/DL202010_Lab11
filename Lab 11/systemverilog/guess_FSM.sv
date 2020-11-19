@@ -27,13 +27,12 @@ module guess_FSM #(parameter N=1)(
     output reg [3:0] y
     );
     
-    localparam [1:0]
-      s0    = 2'b0000,
-      s1    = 2'b0001,
-      s2    = 2'b0011,
-      s3    = 2'b0010,
-      swin  = 4'b0100,
-      slose = 4'b0101;
+      localparam s0    = 3'b000;
+      localparam s1    = 3'b001;
+      localparam s2    = 3'b011;
+      localparam s3    = 3'b010;
+      localparam swin  = 3'b100;
+      localparam slose = 3'b101;
 
     reg [1:0] state, state_next;
     reg [N-1:0] counter, counter_next;
@@ -56,7 +55,7 @@ module guess_FSM #(parameter N=1)(
          s0: begin
             if (4'b0001)
                state_next = swin;
-            else if (4'b000)
+            else if (4'b0000)
                state_next = s1; 
             else 
                state_next = slose;
@@ -65,7 +64,7 @@ module guess_FSM #(parameter N=1)(
          s1: begin
             if (4'b0010)
                state_next = swin;
-            else if (4'b000)
+            else if (4'b0000)
                state_next = s2; 
             else 
                state_next = slose;
@@ -74,7 +73,7 @@ module guess_FSM #(parameter N=1)(
          s2: begin
             if (4'b0100)
                state_next = swin;
-            else if (4'b000)
+            else if (4'b0000)
                state_next = s3; 
             else 
                state_next = slose;
@@ -83,7 +82,7 @@ module guess_FSM #(parameter N=1)(
          s3: begin
             if (4'b1000)
                state_next = swin;
-            else if (4'b000)
+            else if (4'b0000)
                state_next = s0; 
             else 
                state_next = slose;
@@ -110,14 +109,36 @@ module guess_FSM #(parameter N=1)(
       lose = 0;
       
        case(state)
-          s0: y = 4'b0001;
-          s1: y = 4'b0010;
-          s2: y = 4'b0100;
-          s3: y = 4'b1000;
+          s0: 
+             begin
+             y = 4'b0001;
+             win = 1'b0;
+             lose= 1'b0;
+             end
+          s1: 
+             begin
+             y = 4'b0010;
+             win = 1'b0;
+             lose= 1'b0;
+             end
+          s2: 
+             begin
+             y = 4'b0100;
+             win = 1'b0;
+             lose= 1'b0;
+             end
+          s3: 
+             begin
+             y = 4'b1000;
+             win = 1'b0;
+             lose= 1'b0;
+             end
+             
           swin: begin
              win = 1;
              y = 4'b1111;
           end
+          
           slose: begin
              lose = 1;
              y = 4'b0000;

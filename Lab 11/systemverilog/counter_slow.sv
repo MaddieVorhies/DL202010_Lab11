@@ -26,7 +26,7 @@ module counter_slow(
     output msbs
     );
     
-    counter #(.N(1)) count_slow (
+    counter #(.N(25)) count_slow (
        .clk(clk),
        .rst(rst),
        .msbs(msbs)
