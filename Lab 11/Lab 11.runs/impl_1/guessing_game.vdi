@@ -585,3 +585,16 @@ INFO: [Common 17-206] Exiting Vivado at Thu Nov 19 13:27:45 2020...
 # Log file: H:/DL202010_Lab11/Lab 11/Lab 11.runs/impl_1/guessing_game.vdi
 # Journal file: H:/DL202010_Lab11/Lab 11/Lab 11.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
+source guessing_game.tcl -notrace
+Command: open_checkpoint guessing_game_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1112.539 ; gain = 0.000
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1112.539 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
