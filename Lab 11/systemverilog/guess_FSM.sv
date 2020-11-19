@@ -40,7 +40,6 @@ module guess_FSM(
     always @(posedge clk, posedge rst)
        if (rst) begin
          state   <= s0;
-         led[15:0] = 1'b0;
       end
       else if (en)
          state   <= state_next;
@@ -126,7 +125,7 @@ module guess_FSM(
              win = 1'b1;
              lose = 1'b0;
              y = 4'b1111;
-             led[15:0] = 1'b1;
+             led[15:0] = 16'b1;
           end
           
           slose: begin

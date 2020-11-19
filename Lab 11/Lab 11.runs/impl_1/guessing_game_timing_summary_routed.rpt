@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Thu Nov 19 13:27:45 2020
+| Date         : Thu Nov 19 13:34:34 2020
 | Host         : ROG-305-16 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file guessing_game_timing_summary_routed.rpt -pb guessing_game_timing_summary_routed.pb -rpx guessing_game_timing_summary_routed.rpx -warn_on_violation
 | Design       : guessing_game
@@ -136,7 +136,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      5.994        0.000                      0                   78        0.261        0.000                      0                   78        4.500        0.000                       0                    79  
+      5.577        0.000                      0                   78        0.261        0.000                      0                   78        4.500        0.000                       0                    79  
 
 
 All user specified timing constraints are met.
@@ -159,7 +159,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         5.994        0.000                      0                   78        0.261        0.000                      0                   78        4.500        0.000                       0                    79  
+sys_clk_pin         5.577        0.000                      0                   78        0.261        0.000                      0                   78        4.500        0.000                       0                    79  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,7 +190,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.994ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        5.577ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.261ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -198,15 +198,15 @@ PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.994ns  (required time - arrival time)
-  Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
+Slack (MET) :             5.577ns  (required time - arrival time)
+  Source:                 slow/count_slow/reg_in_count/Q_reg[8]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            guessing_game/FSM_onehot_state_reg[0]/CE
                             (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.770ns  (logic 0.890ns (23.606%)  route 2.880ns (76.394%))
+  Data Path Delay:        4.188ns  (logic 0.890ns (21.253%)  route 3.298ns (78.747%))
   Logic Levels:           3  (LUT3=1 LUT6=2)
   Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.783ns = ( 14.783 - 10.000 ) 
@@ -228,16 +228,16 @@ Slack (MET) :             5.994ns  (required time - arrival time)
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
                          net (fo=78, routed)          1.567     5.088    slow/count_slow/reg_in_count/CLK
-    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
+    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.856     6.462    slow/count_slow/reg_in_count/Q_reg[10]
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     6.586 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
-                         net (fo=1, routed)           0.433     7.019    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.143 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
-                         net (fo=1, routed)           1.115     8.258    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
-    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.382 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
-                         net (fo=5, routed)           0.477     8.858    guessing_game/E[0]
+    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[8]/Q
+                         net (fo=2, routed)           1.273     6.880    slow/count_slow/reg_in_count/Q_reg[8]
+    SLICE_X53Y12         LUT6 (Prop_lut6_I2_O)        0.124     7.004 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
+                         net (fo=1, routed)           0.433     7.436    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
+    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.560 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
+                         net (fo=1, routed)           1.115     8.675    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
+    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.799 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
+                         net (fo=5, routed)           0.477     9.276    guessing_game/E[0]
     SLICE_X50Y18         FDPE                                         r  guessing_game/FSM_onehot_state_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -255,19 +255,19 @@ Slack (MET) :             5.994ns  (required time - arrival time)
     SLICE_X50Y18         FDPE (Setup_fdpe_C_CE)      -0.169    14.853    guessing_game/FSM_onehot_state_reg[0]
   -------------------------------------------------------------------
                          required time                         14.853    
-                         arrival time                          -8.858    
+                         arrival time                          -9.276    
   -------------------------------------------------------------------
-                         slack                                  5.994    
+                         slack                                  5.577    
 
-Slack (MET) :             5.994ns  (required time - arrival time)
-  Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
+Slack (MET) :             5.577ns  (required time - arrival time)
+  Source:                 slow/count_slow/reg_in_count/Q_reg[8]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            guessing_game/FSM_onehot_state_reg[1]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.770ns  (logic 0.890ns (23.606%)  route 2.880ns (76.394%))
+  Data Path Delay:        4.188ns  (logic 0.890ns (21.253%)  route 3.298ns (78.747%))
   Logic Levels:           3  (LUT3=1 LUT6=2)
   Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.783ns = ( 14.783 - 10.000 ) 
@@ -289,16 +289,16 @@ Slack (MET) :             5.994ns  (required time - arrival time)
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
                          net (fo=78, routed)          1.567     5.088    slow/count_slow/reg_in_count/CLK
-    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
+    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.856     6.462    slow/count_slow/reg_in_count/Q_reg[10]
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     6.586 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
-                         net (fo=1, routed)           0.433     7.019    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.143 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
-                         net (fo=1, routed)           1.115     8.258    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
-    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.382 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
-                         net (fo=5, routed)           0.477     8.858    guessing_game/E[0]
+    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[8]/Q
+                         net (fo=2, routed)           1.273     6.880    slow/count_slow/reg_in_count/Q_reg[8]
+    SLICE_X53Y12         LUT6 (Prop_lut6_I2_O)        0.124     7.004 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
+                         net (fo=1, routed)           0.433     7.436    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
+    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.560 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
+                         net (fo=1, routed)           1.115     8.675    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
+    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.799 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
+                         net (fo=5, routed)           0.477     9.276    guessing_game/E[0]
     SLICE_X50Y18         FDCE                                         r  guessing_game/FSM_onehot_state_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -316,19 +316,19 @@ Slack (MET) :             5.994ns  (required time - arrival time)
     SLICE_X50Y18         FDCE (Setup_fdce_C_CE)      -0.169    14.853    guessing_game/FSM_onehot_state_reg[1]
   -------------------------------------------------------------------
                          required time                         14.853    
-                         arrival time                          -8.858    
+                         arrival time                          -9.276    
   -------------------------------------------------------------------
-                         slack                                  5.994    
+                         slack                                  5.577    
 
-Slack (MET) :             5.994ns  (required time - arrival time)
-  Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
+Slack (MET) :             5.577ns  (required time - arrival time)
+  Source:                 slow/count_slow/reg_in_count/Q_reg[8]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            guessing_game/FSM_onehot_state_reg[2]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.770ns  (logic 0.890ns (23.606%)  route 2.880ns (76.394%))
+  Data Path Delay:        4.188ns  (logic 0.890ns (21.253%)  route 3.298ns (78.747%))
   Logic Levels:           3  (LUT3=1 LUT6=2)
   Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.783ns = ( 14.783 - 10.000 ) 
@@ -350,16 +350,16 @@ Slack (MET) :             5.994ns  (required time - arrival time)
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
                          net (fo=78, routed)          1.567     5.088    slow/count_slow/reg_in_count/CLK
-    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
+    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.856     6.462    slow/count_slow/reg_in_count/Q_reg[10]
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     6.586 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
-                         net (fo=1, routed)           0.433     7.019    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.143 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
-                         net (fo=1, routed)           1.115     8.258    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
-    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.382 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
-                         net (fo=5, routed)           0.477     8.858    guessing_game/E[0]
+    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[8]/Q
+                         net (fo=2, routed)           1.273     6.880    slow/count_slow/reg_in_count/Q_reg[8]
+    SLICE_X53Y12         LUT6 (Prop_lut6_I2_O)        0.124     7.004 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
+                         net (fo=1, routed)           0.433     7.436    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
+    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.560 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
+                         net (fo=1, routed)           1.115     8.675    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
+    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.799 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
+                         net (fo=5, routed)           0.477     9.276    guessing_game/E[0]
     SLICE_X50Y18         FDCE                                         r  guessing_game/FSM_onehot_state_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -377,19 +377,19 @@ Slack (MET) :             5.994ns  (required time - arrival time)
     SLICE_X50Y18         FDCE (Setup_fdce_C_CE)      -0.169    14.853    guessing_game/FSM_onehot_state_reg[2]
   -------------------------------------------------------------------
                          required time                         14.853    
-                         arrival time                          -8.858    
+                         arrival time                          -9.276    
   -------------------------------------------------------------------
-                         slack                                  5.994    
+                         slack                                  5.577    
 
-Slack (MET) :             5.994ns  (required time - arrival time)
-  Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
+Slack (MET) :             5.577ns  (required time - arrival time)
+  Source:                 slow/count_slow/reg_in_count/Q_reg[8]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            guessing_game/FSM_onehot_state_reg[3]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.770ns  (logic 0.890ns (23.606%)  route 2.880ns (76.394%))
+  Data Path Delay:        4.188ns  (logic 0.890ns (21.253%)  route 3.298ns (78.747%))
   Logic Levels:           3  (LUT3=1 LUT6=2)
   Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.783ns = ( 14.783 - 10.000 ) 
@@ -411,16 +411,16 @@ Slack (MET) :             5.994ns  (required time - arrival time)
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
                          net (fo=78, routed)          1.567     5.088    slow/count_slow/reg_in_count/CLK
-    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
+    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.856     6.462    slow/count_slow/reg_in_count/Q_reg[10]
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     6.586 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
-                         net (fo=1, routed)           0.433     7.019    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.143 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
-                         net (fo=1, routed)           1.115     8.258    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
-    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.382 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
-                         net (fo=5, routed)           0.477     8.858    guessing_game/E[0]
+    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[8]/Q
+                         net (fo=2, routed)           1.273     6.880    slow/count_slow/reg_in_count/Q_reg[8]
+    SLICE_X53Y12         LUT6 (Prop_lut6_I2_O)        0.124     7.004 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
+                         net (fo=1, routed)           0.433     7.436    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
+    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.560 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
+                         net (fo=1, routed)           1.115     8.675    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
+    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.799 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
+                         net (fo=5, routed)           0.477     9.276    guessing_game/E[0]
     SLICE_X50Y18         FDCE                                         r  guessing_game/FSM_onehot_state_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -438,19 +438,19 @@ Slack (MET) :             5.994ns  (required time - arrival time)
     SLICE_X50Y18         FDCE (Setup_fdce_C_CE)      -0.169    14.853    guessing_game/FSM_onehot_state_reg[3]
   -------------------------------------------------------------------
                          required time                         14.853    
-                         arrival time                          -8.858    
+                         arrival time                          -9.276    
   -------------------------------------------------------------------
-                         slack                                  5.994    
+                         slack                                  5.577    
 
-Slack (MET) :             6.128ns  (required time - arrival time)
-  Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
+Slack (MET) :             5.711ns  (required time - arrival time)
+  Source:                 slow/count_slow/reg_in_count/Q_reg[8]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            guessing_game/FSM_onehot_state_reg[4]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.636ns  (logic 0.890ns (24.475%)  route 2.746ns (75.525%))
+  Data Path Delay:        4.054ns  (logic 0.890ns (21.955%)  route 3.164ns (78.045%))
   Logic Levels:           3  (LUT3=1 LUT6=2)
   Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.783ns = ( 14.783 - 10.000 ) 
@@ -472,16 +472,16 @@ Slack (MET) :             6.128ns  (required time - arrival time)
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
                          net (fo=78, routed)          1.567     5.088    slow/count_slow/reg_in_count/CLK
-    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
+    SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.856     6.462    slow/count_slow/reg_in_count/Q_reg[10]
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     6.586 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
-                         net (fo=1, routed)           0.433     7.019    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
-    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.143 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
-                         net (fo=1, routed)           1.115     8.258    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
-    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.382 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
-                         net (fo=5, routed)           0.343     8.725    guessing_game/E[0]
+    SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.518     5.606 r  slow/count_slow/reg_in_count/Q_reg[8]/Q
+                         net (fo=2, routed)           1.273     6.880    slow/count_slow/reg_in_count/Q_reg[8]
+    SLICE_X53Y12         LUT6 (Prop_lut6_I2_O)        0.124     7.004 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5/O
+                         net (fo=1, routed)           0.433     7.436    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_5_n_0
+    SLICE_X53Y12         LUT6 (Prop_lut6_I0_O)        0.124     7.560 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3/O
+                         net (fo=1, routed)           1.115     8.675    slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_3_n_0
+    SLICE_X52Y17         LUT3 (Prop_lut3_I1_O)        0.124     8.799 r  slow/count_slow/reg_in_count/FSM_onehot_state[4]_i_1/O
+                         net (fo=5, routed)           0.343     9.142    guessing_game/E[0]
     SLICE_X52Y18         FDCE                                         r  guessing_game/FSM_onehot_state_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -499,9 +499,9 @@ Slack (MET) :             6.128ns  (required time - arrival time)
     SLICE_X52Y18         FDCE (Setup_fdce_C_CE)      -0.169    14.853    guessing_game/FSM_onehot_state_reg[4]
   -------------------------------------------------------------------
                          required time                         14.853    
-                         arrival time                          -8.725    
+                         arrival time                          -9.142    
   -------------------------------------------------------------------
-                         slack                                  6.128    
+                         slack                                  5.711    
 
 Slack (MET) :             6.380ns  (required time - arrival time)
   Source:                 deb1/counter_reg[4]/C
@@ -1196,7 +1196,7 @@ Slack (MET) :             0.265ns  (arrival time - required time)
   -------------------------------------------------------------------
                          slack                                  0.265    
 
-Slack (MET) :             0.266ns  (arrival time - required time)
+Slack (MET) :             0.265ns  (arrival time - required time)
   Source:                 slow/count_slow/reg_in_count/Q_reg[10]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            slow/count_slow/reg_in_count/Q_reg[10]/D
@@ -1204,7 +1204,7 @@ Slack (MET) :             0.266ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.400ns  (logic 0.274ns (68.524%)  route 0.126ns (31.476%))
+  Data Path Delay:        0.399ns  (logic 0.274ns (68.589%)  route 0.125ns (31.411%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.960ns
@@ -1224,7 +1224,7 @@ Slack (MET) :             0.266ns  (arrival time - required time)
     SLICE_X52Y12         FDCE                                         r  slow/count_slow/reg_in_count/Q_reg[10]/C
   -------------------------------------------------------------------    -------------------
     SLICE_X52Y12         FDCE (Prop_fdce_C_Q)         0.164     1.610 r  slow/count_slow/reg_in_count/Q_reg[10]/Q
-                         net (fo=2, routed)           0.126     1.736    slow/count_slow/reg_in_count/Q_reg[10]
+                         net (fo=2, routed)           0.125     1.736    slow/count_slow/reg_in_count/Q_reg[10]
     SLICE_X52Y12         CARRY4 (Prop_carry4_S[2]_O[2])
                                                       0.110     1.846 r  slow/count_slow/reg_in_count/Q_reg[8]_i_1/O[2]
                          net (fo=1, routed)           0.000     1.846    slow/count_slow/reg_in_count/Q_reg[8]_i_1_n_5
@@ -1246,7 +1246,7 @@ Slack (MET) :             0.266ns  (arrival time - required time)
                          required time                         -1.580    
                          arrival time                           1.846    
   -------------------------------------------------------------------
-                         slack                                  0.266    
+                         slack                                  0.265    
 
 Slack (MET) :             0.267ns  (arrival time - required time)
   Source:                 slow/count_slow/reg_in_count/Q_reg[14]/C
