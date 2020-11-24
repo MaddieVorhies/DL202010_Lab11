@@ -94,12 +94,12 @@ The simulation starts out in state zero and then reaches wait1 at 200.0ns, then 
 
 \begin{figure}[ht]\centering
 	\caption{Simulation Waveform for Guess FSM}
-	\includegraphics [width=1\textwidth,trim=640 550 10 135, clip]{guess_FSM_sim}
+	\includegraphics [width=1\textwidth,trim=640 500 10 135, clip]{guess_FSM_sim}
 \end{figure}
 
 \begin{figure}[ht]\centering
 	\caption{Simulation Waveform for Guessing Game}
-	\includegraphics [width=1\textwidth,trim=640 550 10 135, clip]{guessing_game_sim}
+	\includegraphics [width=1\textwidth,trim=640 500 10 135, clip]{guessing_game_sim}
 \end{figure}
 
 \begin{table*}[ht]\centering
@@ -134,13 +134,370 @@ The simulation starts out in state zero and then reaches wait1 at 200.0ns, then 
 
 \section*{Code}
 
-\Verilog{Lab11/systemverilog/guess_FSM.sv}
+\begin{lstlisting}
 
-\Verilog{Lab11/systemverilog/guess_FSM_test.sv}
+module guess_FSM(
+   input clk, rst, en,
+   input  [3:0] b,
+   output reg [15:0] led,
+   output reg win, lose,
+   output reg [3:0] y
+);
 
-\Verilog{Lab11/systemverilog/guessing_game.sv}
+   localparam s0    = 3'b000;
+   localparam s1    = 3'b001;
+   localparam s2    = 3'b010;
+   localparam s3    = 3'b011;
+   localparam swin  = 3'b100;
+   localparam slose = 3'b101;
 
-\Verilog{Lab11/systemverilog/guessing_game_test.sv}
+   reg [2:0] state, state_next;
+
+   always @(posedge clk, posedge rst)
+      if (rst) begin
+         state   <= s0;
+   end
+      else if (en)
+        state   <= state_next;
+
+   always @*
+
+      case(state)
+         s0: begin
+            if (b == 4'b0000)
+               state_next = s1;
+            else if (b[3] == 1 || b[2] == 1 || b[1] == 1)
+               state_next = slose; 
+            else 
+               state_next = swin;
+         end
+
+         s1: begin
+            if (b == 4'b0000)
+               state_next = s2;
+            else if (b[3] == 1 || b[2] == 1 || b[0] == 1)
+               state_next = slose; 
+            else 
+               state_next = swin;
+         end
+
+         s2: begin
+            if (b == 4'b0000)
+               state_next = s3;
+            else if (b[3] == 1 || b[1] == 1 || b[0] == 1)
+               state_next = slose; 
+            else 
+               state_next = swin;
+         end
+
+         s3: begin
+            if (b == 4'b0000)
+               state_next = s0;
+            else if (b[2] == 1 || b[1] == 1 || b[0] == 1)
+               state_next = slose; 
+            else 
+               state_next = swin;
+         end
+
+         swin: 
+            state_next = swin;
+
+         slose: 
+            state_next = slose;
+
+     endcase
+
+   always @* begin
+      win = 1'b0;
+      lose = 1'b0;
+      led[15:0] = 16'b0;
+         case(state)
+            s0: 
+               begin
+               y = 4'b0001;
+ 			   win = 1'b0;
+			   lose= 1'b0;
+			   end
+			s1: 
+			   begin
+			   y = 4'b0010;
+			   win = 1'b0;
+			   lose= 1'b0;
+			   end
+			s2: 
+			   begin
+			   y = 4'b0100;
+			   win = 1'b0;
+			   lose= 1'b0;
+			   end
+			s3: 
+			   begin
+			   y = 4'b1000;
+			   win = 1'b0;
+			   lose= 1'b0;
+			   end
+
+			swin: begin
+			   win = 1'b1;
+			   lose = 1'b0;
+			   y = 4'b1111;
+			   led[15:0] = 16'b1111111111111111;
+			end
+
+			slose: begin
+			   lose = 1'b1;
+			   win = 1'b0;
+			   y = 4'b0000;
+			   led[0] = 1'b1;
+			end
+		endcase
+	end
+
+endmodule
+
+
+\end{lstlisting}
+
+\begin{lstlisting}
+
+module guess_FSM_test();
+	reg clk_t, rst_t, en_t;
+	reg  [3:0] b_t;
+	reg win_t, lose_t;
+	reg [3:0] y_t;
+	integer i;
+
+	guess_FSM #(.N(21)) dut (
+		.clk(clk_t), 
+		.rst(rst_t), 
+		.en(en_t),
+		.b(b_t),
+		.win(win_t), 
+		.lose(lose_t), 
+		.y(y_t)
+	);
+
+	always begin
+		clk_t = ~clk_t; #5;
+	end
+
+	initial begin
+		clk_t = 0; rst_t = 1; en_t = 0; b_t = 4'b0000; #10
+		rst_t = 0; #20
+		en_t = 1; #60
+
+		for (i = 0; i <= 4'b1111; i = i + 1) begin
+			b_t = 4'b0000; 
+			#60; 
+			b_t = i;
+			#10;
+		end
+
+		b_t = 4'b0000;
+		en_t = 0; #50;
+		en_t = 1; #60; 
+		rst_t = 1; #10;
+		rst_t = 0;
+
+		for (i = 0; i <= 4'b1111; i = i + 1) begin
+			b_t = 4'b0000;
+			#50; 
+			b_t = i;
+			#10; 
+		end 
+
+		b_t = 4'b0000;
+		en_t = 0; #50;
+		en_t = 1; #60; 
+		rst_t = 1; #10;
+		rst_t = 0;
+
+		for (i = 0; i <= 4'b1111; i = i + 1) begin
+			b_t = 4'b0000;
+			#70; 
+			b_t = i;
+			#10; 
+		end 
+		$finish;
+	end
+
+endmodule
+
+\end{lstlisting}
+
+\begin{lstlisting}
+
+module guessing_game #(parameter N = 26, D = 21) (
+	input btnU, btnD, btnL, btnR, btnC,
+	input clk, 
+	input [15:0] sw, 
+	output [6:0] seg, 
+	output [3:0] an,
+	output reg [15:0] led
+);
+
+	wire deb1_out, deb2_out, deb3_out, deb4_out;
+	wire deb1_tick, deb2_tick, deb3_tick, deb4_tick;
+	wire fast_count;
+	wire slow_count;
+	wire mux2_out;
+	wire [3:0] guess_y;
+	wire guess_win;
+	wire guess_lose;
+
+	debounce #(.N(D))deb1(
+		.clk(clk), 
+		.reset(btnC),
+		.in(btnR),
+		.out(deb1_out),
+		.tick(deb1_tick)
+	);
+
+	debounce #(.N(D))deb2(
+		.clk(clk), 
+		.reset(btnC),
+		.in(btnU),
+		.out(deb2_out),
+		.tick(deb2_tick)
+	);
+
+	debounce #(.N(D))deb3(
+		.clk(clk), 
+		.reset(btnC),
+		.in(btnL),
+		.out(deb3_out),
+		.tick(deb3_tick)
+	);
+
+	debounce #(.N(D))deb4(
+		.clk(clk), 
+		.reset(btnC),
+		.in(btnD),
+		.out(deb4_out),
+		.tick(deb4_tick)
+	);
+
+	counter #(.N(N)) slow(
+		.clk(clk), 
+		.rst(btnC),
+		.tick(slow_count)
+	);
+
+	counter #(.N(N-2)) fast(
+		.clk(clk),
+		.rst(btnC),
+		.tick(fast_count)
+	);
+
+	mux2 #(.BITS(1)) mux_guess(
+		.in0(slow_count),
+		.in1(fast_count),
+		.sel(sw[0]),
+		.out(mux2_out)
+	);
+
+	guess_FSM guessing_game(
+		.b({deb4_out, deb3_out, deb2_out, deb1_out}),
+		.en(mux2_out),
+		.clk(clk), 
+		.rst(btnC),
+		.y(guess_y),
+		.win(guess_win),
+		.lose(guess_lose),
+		.led(led)
+	);
+
+	y_decoder decoder(
+		.in(guess_y), 
+		.out(seg)
+	);
+
+	assign an = 4'b1110;
+
+endmodule
+
+
+\end{lstlisting}
+
+\begin{lstlisting}
+
+module guessing_game_test();
+	reg btnU_t, btnD_t, btnL_t, btnR_t, btnC_t;
+	reg clk_t;
+	reg [15:0] sw_t;
+	wire [6:0] seg_t;
+	wire [3:0] an_t;
+	reg [15:0] led_t;
+
+	guessing_game #(.N(3), .D(1)) dut(
+		.btnU(btnU_t),
+		.btnD(btnD_t), 
+		.btnL(btnL_t), 
+		.btnR(btnR_t),
+		.btnC(btnC_t),
+		.clk(clk_t),
+		.sw(sw_t),
+		.seg(seg_t),
+		.an(an_t),
+		.led(led_t)
+	);
+
+	always begin
+		clk_t = ~clk_t; #5;
+	end
+
+	initial begin 
+		clk_t = 0; btnC_t = 1; btnR_t = 0; btnD_t = 0; 
+		btnU_t = 0; btnL_t = 0; sw_t = 0; #10;
+		btnC_t = 0; #20;
+		sw_t = 0; #40; 
+
+		btnR_t = 1; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 0; #100;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 0; #10;
+		sw_t = 1; #60;
+		sw_t = 0; #50;
+		btnC_t = 1; #20;
+		btnC_t = 0; #60;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 1; btnU_t = 0; #50;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 0; #10;
+		sw_t = 1; #60;
+		sw_t = 0; #50;
+		btnC_t = 1; #20;
+		btnC_t = 0; #60;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 1; btnU_t = 0; #50;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 0; #10;
+		sw_t = 1; #60;
+		sw_t = 0; #50;
+		btnC_t = 1; #20;
+		btnC_t = 0; #60;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 1; #50;
+
+		btnR_t = 0; btnL_t = 0; 
+		btnD_t = 0; btnU_t = 0; #10;
+		sw_t = 1; #60;
+		sw_t = 0; #50;
+		btnC_t = 1; #20;
+		btnC_t = 0; #60;
+		$finish;
+
+	end
+
+endmodule
+
+\end{lstlisting}
 
 
 
