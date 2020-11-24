@@ -92,9 +92,9 @@ module guess_FSM(
       endcase
     
     always @* begin
-      win = 0;
-      lose = 0;
-      
+      win = 1'b0;
+      lose = 1'b0;
+      led[15:0] = 16'b0;
        case(state)
           s0: 
              begin
@@ -125,7 +125,7 @@ module guess_FSM(
              win = 1'b1;
              lose = 1'b0;
              y = 4'b1111;
-             led[15:0] = 16'b1;
+             led[15:0] = 16'b1111111111111111;
           end
           
           slose: begin

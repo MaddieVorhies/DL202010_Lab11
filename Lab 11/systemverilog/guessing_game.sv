@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module guessing_game(
+module guessing_game #(parameter N = 26, D = 21) (
    input btnU, btnD, btnL, btnR, btnC,
    input clk, 
    input [15:0] sw, 
@@ -38,31 +38,31 @@ module guessing_game(
     wire guess_win;
     wire guess_lose;
     
-    debounce deb1(
+    debounce #(.N(D))deb1(
        .clk(clk), 
        .reset(btnC),
-       .in(btnD),
+       .in(btnR),
        .out(deb1_out),
        .tick(deb1_tick)
     );
     
-    debounce deb2(
+    debounce #(.N(D))deb2(
        .clk(clk), 
        .reset(btnC),
-       .in(btnD),
+       .in(btnU),
        .out(deb2_out),
        .tick(deb2_tick)
     );
     
-    debounce deb3(
+    debounce #(.N(D))deb3(
        .clk(clk), 
        .reset(btnC),
-       .in(btnD),
+       .in(btnL),
        .out(deb3_out),
        .tick(deb3_tick)
     );
     
-    debounce deb4(
+    debounce #(.N(D))deb4(
        .clk(clk), 
        .reset(btnC),
        .in(btnD),
@@ -70,13 +70,13 @@ module guessing_game(
        .tick(deb4_tick)
     );
     
-   counter_slow slow(
+   counter #(.N(N)) slow(
        .clk(clk), 
        .rst(btnC),
        .tick(slow_count)
     );
    
-    counter_fast fast(
+    counter #(.N(N-2)) fast(
        .clk(clk),
        .rst(btnC),
        .tick(fast_count)
@@ -90,7 +90,7 @@ module guessing_game(
     );
     
     guess_FSM guessing_game(
-       .b({deb1_out, deb2_out, deb3_out, deb4_out}),
+       .b({deb4_out, deb3_out, deb2_out, deb1_out}),
        .en(mux2_out),
        .clk(clk), 
        .rst(btnC),

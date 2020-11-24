@@ -69,7 +69,7 @@
 
 \section*{Summary}
 
-The goal of this lab is to use what we have learned in previous labs to create a guessing game. In order to do this, I first have to create a debounce circuit. A debounce ensures that the value of the input is held for a certain period of time. In this lab we were given the debounce module and the test, so I ran the test just to make sure that I recieved the correct output. In the game, there are two different settings: a fast setting and a slow setting. In order to implement this, I created two seperate counters. Both were very similar, but they have different paramters to distinguish between fast and slow. The larger the parameter the slower the counter so I set my parameter in the fast counter to N = 24 and the slow counter to N = 26. Then  created a mux so that you can choose which setting you ant to play using switch 0. Next, I created a decoder so that the board would display on the upper four segments of the first 7-segment display digit. 
+The goal of this lab is to use what we have learned in previous labs to create a guessing game. In order to do this, I first have to create a debounce circuit. A debounce ensures that the value of the input is held for a certain period of time. In this lab we were given the debounce module and the test, so I ran the test just to make sure that I recieved the correct output. In the game, there are two different settings: a fast setting and a slow setting. In order to implement this, I created two seperate counters. Both were very similar, but they have different paramters to distinguish between fast and slow. The larger the parameter the slower the counter so I set my parameter in the fast counter to N = 24 and the slow counter to N = 26. Then  created a mux so that you can choose which setting you ant to play using switch 0. Next, I created a decoder so that the board would display on the upper four segments of the first 7-segment display digit. Lastly I created the guessFSM module which was the guessing game itself. This modules cycles through different states that correspond to different buttons being pressed. If the correct button is pressed at the correct time, you will go to the in state, and if any other button is pressed then you will go to the lose state. After this module was built, I created a testbench to test it. Then I created my overall guessing game module that put all of theses pieces together. I then created a guessing game testbench. Once it was successful I was able to play my game.
 
 
 \section*{Q\&A}
@@ -102,6 +102,35 @@ The simulation starts out in state zero and then reaches wait1 at 200.0ns, then 
 	\includegraphics [width=1\textwidth,trim=640 550 10 135, clip]{guessing_game_sim}
 \end{figure}
 
+\begin{table*}[ht]\centering
+	\caption{10 games on slow setting}
+	\label{ALU:tbl:alu_ERT}\medskip
+	\begin{tabular}{l|rrrrrrrrrr}
+		Game: & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		\midrule
+		win/lose & win & win & win & lose & win & win & win & win & win & win\\
+		segment & right & right & up & down & down & left & left & up & right & down \\
+		state & s0 & s0 & s1 & s3 & s3 & s2 & s2 & s1 & s0 & s3\\
+		\midrule
+		winning percentage & 90 &  &  &  &  & & & & &\\
+		\bottomrule
+	\end{tabular}
+\end{table*}
+
+\begin{table*}[ht]\centering
+	\caption{10 games on fast setting}
+	\label{ALU:tbl:alu_ERT}\medskip
+	\begin{tabular}{l|rrrrrrrrrr}
+		Game: & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		\midrule
+		win/lose & win & win & win & win & win & lose & lose & win & win & win\\
+		segment & left & right & left & up & up & right & down & down & up & left \\
+		state & s2 & s0 & s2 & s1 & s1 & s0 & s3 & s3 & s1 & s2\\
+		\midrule
+		winning percentage & 80 &  &  &  &  & & & & &\\
+		\bottomrule
+	\end{tabular}
+\end{table*}
 
 \section*{Code}
 

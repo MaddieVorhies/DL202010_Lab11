@@ -1,0 +1,13 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+H:/DL202010_Lab08/Lab08/systemverilog/mux2.sv,1602780376,systemVerilog,,H:/DL202010_Lab09/Lab09/systemverilog/register.sv,,mux2,,,,,,,,
+H:/DL202010_Lab09/Lab09/systemverilog/register.sv,1603383560,systemVerilog,,H:/DL202010_Lab11/Lab 11/systemverilog/y_decoder.sv,,register,,,,,,,,
+H:/DL202010_Lab11/Lab 11/Lab 11.sim/sim_3/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+H:/DL202010_Lab11/Lab 11/systemverilog/debounce.sv,1604597423,systemVerilog,,H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM.sv,,debounce,,,,,,,,
+H:/DL202010_Lab11/Lab 11/systemverilog/guess_FSM.sv,1605839598,systemVerilog,,H:/DL202010_Lab11/Lab 11/systemverilog/guessing_game.sv,,guess_FSM,,,,,,,,
+H:/DL202010_Lab11/Lab 11/systemverilog/guessing_game.sv,1605845760,systemVerilog,,H:/DL202010_Lab08/Lab08/systemverilog/mux2.sv,,guessing_game,,,,,,,,
+H:/DL202010_Lab11/Lab 11/systemverilog/guessing_game_test.sv,1606175647,systemVerilog,,,,guessing_game_test,,,,,,,,
+H:/DL202010_Lab11/Lab 11/systemverilog/y_decoder.sv,1605751800,systemVerilog,,H:/DL202010_Lab11/Lab 11/systemverilog/guessing_game_test.sv,,y_decoder,,,,,,,,
+H:/Lab10B/Lab10/systemverilog/counter.sv,1605807942,systemVerilog,,H:/DL202010_Lab11/Lab 11/systemverilog/debounce.sv,,counter,,,,,,,,

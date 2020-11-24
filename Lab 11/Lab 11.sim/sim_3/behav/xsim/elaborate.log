@@ -1,0 +1,23 @@
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/XilinxVitis/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 5ea376828a3043b1be76547dc8cc3e56 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot guessing_game_test_behav xil_defaultlib.guessing_game_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'en' [H:/Lab10B/Lab10/systemverilog/counter.sv:34]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.debounce(N=1)
+Compiling module xil_defaultlib.register(N=3)
+Compiling module xil_defaultlib.counter(N=3)
+Compiling module xil_defaultlib.register(N=1)
+Compiling module xil_defaultlib.counter
+Compiling module xil_defaultlib.mux2(BITS=1)
+Compiling module xil_defaultlib.guess_FSM
+Compiling module xil_defaultlib.y_decoder
+Compiling module xil_defaultlib.guessing_game(N=3,D=1)
+Compiling module xil_defaultlib.guessing_game_test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot guessing_game_test_behav
